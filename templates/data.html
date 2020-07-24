@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand navbar-dark bg-dark" href="./index.html">NERKS.</a>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">HOME<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./locations.html">LOCATIONS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./buildings.html">BUILDINGS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./rooms.html">ROOMS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./creators.html">CREATORS</a>
+              </li>    
+              <li class="nav-item active">
+                <a class="nav-link" href="./data.html">TECHNICAL DATA</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">CONTACT</a>
+              </li>                      
+          </ul>
+
+        </div>
+      </nav>
+
+      
+
+
+    
+
+
+    <div class="jumbotron">
+        <h1 class="display-4">NERKS.</h1>
+        <p class="lead">We have tried to present the documentation of the project. Feel free to get in touch with the team for additional clarity in our methodology.</p>
+        <hr class="my-4">
+        <p>Goal : 
+          Our aim is to establish a platform which provides recommendation to the user, about the thickness of walls of particular construction type, such as to maintain maximum probability of thermal comfort inside the building.
+          </p>
+        <hr class="my-4">
+        <p>Theory :
+          The outer surface of any building represents the first line of defence against external thermal forces. External envelope of low-rise buildings represents a major source of thermal load. Roof area in low-rise buildings represents a major portion of the envelope area and in many buildings might exceed 50% of the envelope area. While the surface temperature of the building is usually higher than that of the air ,careful treatment of the roof surface is essential in order to reduce heat gain. The selection of absorptivity and emissivity characteristics of roof materials in the defence against solar radiation impacts are also very important. 
+          
+          The prediction of the energy exchange between the exterior surfaces of a building or other construction and the outdoor environment cannot
+          readily be reduced to a simple basis. The dominant weather elements which affect this energy exchange are sunshine, air temperature and wind. In addition, the shape and orientation of the building and its relationship to the ground and surrounding objects, as well as the absorptivity and emissivity characteristics of the surfaces involved enter into the problem. Additional complication is provided by the effects of rain, condensation and evaporation. Fortunately these latter effects are not always involved and so, as is done in this report, they are usually disregarded. Even without them the problem is difficult enough.
+          The normal meteorological readings which are taken do not adequately describe the weather for purposes of calculating its effect upon the surface energy exchange, particularly when sunshine is involved. Even if all the individual factors are measured there remains the problem of recombining these multiple streams of variables in the calculation. There is, fortunately, a way of achieving some simplification; a combined factor called sol-air temperature can be used so that it becomes necessary only to deal with a single stream of data.
+          
+          Sol-air temperature is a fictitious temperature which represents as defined by ASHRAE the temperature of the outdoor air that , in the absence of all radiation changes , gives the same rate of the heat entry into the surface as would be the combination of incident solar radiation , radiant energy exchange with the sky and other outdoor surroundings , and convictive heat exchange with the outdoor air. Sol air temperature helps us to calculate the temperature of outside walls which is most essential for our calculation.
+          
+          It is quite difficult to quantify a common thermal comfort characteristic for every person, since personal comfort requirements vary from person to person. We have decided to let the user define his/her own comfort criteria, and we provide them with results accordingly.
+          
+          The required temperature and humidity inside the room, from the user provides us with the basis of estimating inside wall temperature range. From our individual dataset of different type of construction and variation of temperature across the wall, we can formulate the change of temperature for different wall thickness. We will apply this methodology, to determine the different wall thickness of the building, such that the inside condition remains in thermal comfort. We calculate the mean thickness of wall, such that the probability of remaining in thermal comfort zone remains high throughout the year. 
+                    </p>
+        <hr class="my-4">
+        <p>Download the detailed documentation here.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Download</a>
+      </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
