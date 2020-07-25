@@ -14,14 +14,83 @@
     crossorigin=""></script>
     <style>
         #mapid {
-             height: 100vh;
+             height: 90vh;
              }
     </style>
 </head>
 <body>
-    <div id="mapid"></div>
+
+
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <img src="/static/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+          NERKS.
+        </a>
+      </nav>
+
+    
+      
+      <div class="card mb-3" style="max-width: 100vw;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <div class="card bg-light" style="height: 0vmax;">
+                <div class="card-body">
+                  <div class="alert alert-primary" role="alert">
+                    Step 1 : Use the map on this page to find your location.
+                  </div>
+                  <div class="alert alert-primary" role="alert">
+                    Step 2 : Enter the latitude and longitude from the map, followed by the time shift.
+                  </div>
+                  <div class="alert alert-primary" role="alert">
+                    Step 3 : Click on submit!
+                  </div>
+                  <div class="alert alert-danger" role="alert">
+                    NOTE : Please enter only the latitude and longitude value. They are typically of the form XX.XXXXXX.
+                  </div>
+                  <div class="alert alert-danger" role="alert">
+                    NOTE : Please enter time shift in the form +X:XX or -X:XX.
+                  </div>
+                    <form action="/input1">
+                      
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">LATITUDE</label>
+                        <input name = "latitude" type="text">
+                        <small id="emailHelp" class="form-text text-muted">Enter the latitude from map.</small>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">LONGITUDE</label>
+                        <input name = "longitude" type="text">
+                        <small id="emailHelp" class="form-text text-muted">Enter the longitude from map.</small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">TIME-SHIFT</label>
+                        <input name = "time_shift" type="text">
+                        <small id="emailHelp" class="form-text text-muted">Enter the Time Shift.</small>
+                      </div>
+                        
+                        
+                        <input type="submit" >
+                      </form>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <div id="mapid"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+
+
+    
+    
     <script>
-        const mymap = L.map('mapid').setView([52.5200, 13.4050], 7);
+        const mymap = L.map('mapid').setView([52.5200, 13.4050], 10);
 
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoicmh0bW5uIiwiYSI6ImNrZDFmeXBoejEzNmMyd291MGtoeXh6ODQifQ.2DEj5EW9Yu0-SCuqWPEHeg', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -31,6 +100,28 @@
         zoomOffset: -1,
         accessToken: 'your.mapbox.access.token'
         }).addTo(mymap);
+
+
+        function onMapClick(e) {
+
+        var position = e.latlng.toString();
+        var pos = position.search(",");
+        var end = position.length;
+        var lttd = position.slice(7,pos);
+        var lgtd = position.slice(pos+1,end-1); 
+        
+                
+        var popup = L.popup();
+            popup
+        .setLatLng(e.latlng)
+        .setContent("Latitude : " + lttd +"    Longitude : " + lgtd)
+        .openOn(mymap);
+        var marker = e.latlng;
+   
+        }
+        mymap.on('click', onMapClick);
+        
+        
     </script>
     
     

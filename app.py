@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
-
+latitude = "NaN"
+longitude = "NaN"
+time_shift = "NaN"
 app = Flask(__name__)
 
 @app.route('/')
@@ -32,4 +34,17 @@ def data():
 
 @app.route('/rooms.html')
 def rooms():
-    return render_template("rooms.html")        
+    return render_template("rooms.html")  
+
+@app.route('/user_location.html')
+def user_location():
+    return render_template("user_location.html")      
+
+@app.route('/input1')
+def input1():
+    latitude = request.args.get("latitude")
+    longitude = request.args.get("longitude")
+    time_shift = request.args.get("time_shift")
+    
+    
+   
