@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+
+
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <img src="/static/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+          NERKS.
+        </a>
+      </nav>
+
+    
+      
+      <div class="card mb-3" style="max-width: 100vw;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <div class="card bg-light" style="height: 100vh;">
+                <div class="card-body">
+                  <div class="alert alert-primary" role="alert">
+                    Assume this is building you would like to analyse.
+                  </div>
+                  <div class="alert alert-primary" role="alert">
+                    Use the 3D viewer tool on the right side of the screen to clearly understand how the axis are colour-coded.
+                  </div>
+                  <div class="alert alert-primary" role="alert">
+                    Enter the lenght, breath and height of the building you would like to analyse.
+                  </div>
+                  <div class="alert alert-danger" role="alert">
+                    NOTE : At NERKS, currently we approximate buildings to a cuiboid of given length, breadth and height for our analysis.
+                  </div>
+                    <form action="/input2">
+                      
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">LENGTH</label>
+                        <input name = "length" type="text">
+                        <small id="emailHelp" class="form-text text-muted">Enter the length here(measurement along the orange axis)</small>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">BREADTH</label>
+                        <input name = "breadth" type="text">
+                        <small id="emailHelp" class="form-text text-muted">Enter the breadth here(measurement along the blue axis)</small>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">HEIGHT</label>
+                        <input name = "height" type="text">
+                        <small id="emailHelp" class="form-text text-muted">Enter the height here(measurement along green axis)</small>
+                      </div>
+                        
+                        
+                        <input type="submit" >
+                      </form>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card" style="height: 100vh;">
+                <div class="card-body">
+                    <div class="sketchfab-embed-wrapper"><iframe allow="camera" width= "1200" height="600" src="https://v.creators3d.com/index.html?load=%2Fviews%2Fproduction%2Fitem%2F2020726%2F1972446604642128%2F1972446604642128.glb&autorotate=true&json-data=1595724057817&decrypt=1&gzip=true&tv=112&fov=28&exp=0.90&hdr-intensity=0.9&le-probe=0&hdr=19&grid=true&shaded-wireframe-c=%23000000&shaded-wireframe=true&plane=0.1" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true" style="border: none"></iframe><p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"><a href="https://v.creators3d.com/index.html?load=%2Fviews%2Fproduction%2Fitem%2F2020726%2F1972446604642128%2F1972446604642128.glb&autorotate=true&json-data=1595724057817&decrypt=1&gzip=true&tv=112&fov=28&exp=0.90&hdr-intensity=0.9&le-probe=0&hdr=19&grid=true&shaded-wireframe-c=%23000000&shaded-wireframe=true&plane=0.1" target="_blank" style="font-weight: bold; color: #64FFDA;">Visit Model</a> by <a target="_blank" style="font-weight: bold; color: #64FFDA;" href="https://www.creators3d.com/artist/12457/rhtmnn">rhtmnn</a> hosted with ❤️️ by <a href="https://www.creators3d.com/home?ref=embed&var=12457" target="_blank" style="font-weight: bold; color: #64FFDA;">Creators3D</a></p></div>                  </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+
+    
+    
+
+    
+    
+    
+</body>
+</html>

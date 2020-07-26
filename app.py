@@ -45,6 +45,11 @@ def input1():
     latitude = request.args.get("latitude")
     longitude = request.args.get("longitude")
     time_shift = request.args.get("time_shift")
+    return render_template("building_details.html")
     
-    
+@app.route('/input2')
+def input2(): 
+    length = request.args.get("length")
+    breadth = request.args.get("breadth")   
+    height = request.args.get("height")
    
