@@ -145,6 +145,8 @@ def input2():
     length = float(request.args.get("length"))
     breadth = float(request.args.get("breadth"))   
     height = float(request.args.get("height"))
+
+Tsol1=[0]*8760  
 Tsol2=[0]*8760
 Tsol3=[0]*8760
 Tsol4=[0]*8760
