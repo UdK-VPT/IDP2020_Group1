@@ -10,7 +10,6 @@ longitude = "NaN"
 time_shift = "NaN"
 vs = []
 az = []
-construction = "concrete"
 GTI1 = []
 GTI2 = []
 GTI3 = []
@@ -193,7 +192,8 @@ def input2():
         if GTI5[q]<0:
             GTI5[q] = 0
 
-    return render_template("comfort.html")        
+    return render_template("comfort.html")  
+
 @app.route('/showtime')
 def showtime():
     global height
@@ -222,8 +222,8 @@ def showtime():
     absorptivity_brick = 0.93
     emmisivity_concrete = 0.65
     absorptivity_concrete = 0.96
-    max_temp = 28
-    min_temp = 18
+    max_temp = float(request.args.get("high"))
+    min_temp = float(request.args.get("low"))
     comfort = 0
     R_wall=0.05       # m2K/W
     R_roof=0.04       # m2K/W
@@ -252,21 +252,22 @@ def showtime():
     Heat_hours=0
     deltacool=0
     Cool_hours=0
+    construction = request.args.get("construction")
     for x in range(0,8760):
-        if construction=="concrete":
+        if construction=="Concrete Brick":
             Tsol1[x]=dbt[x] + R_wall * (absorptivity_concrete*GTI1[x])
             Tsol2[x]=dbt[x] + R_wall * (absorptivity_concrete*GTI2[x])
             Tsol3[x]=dbt[x] + R_wall * (absorptivity_concrete*GTI3[x])
             Tsol4[x]=dbt[x] + R_wall * (absorptivity_concrete*GTI4[x])
             Tsol5[x]=dbt[x] + R_roof * ((absorptivity_concrete*GTI5[x])-(emmisivity_concrete*I_roof))
-        if construction=="brick":
+        if construction=="Red Brick":
             Tsol1[x]=dbt[x] + R_wall * (absorptivity_brick*GTI1[x])
             Tsol2[x]=dbt[x] + R_wall * (absorptivity_brick*GTI2[x])
             Tsol3[x]=dbt[x] + R_wall * (absorptivity_brick*GTI3[x])
             Tsol4[x]=dbt[x] + R_wall * (absorptivity_brick*GTI4[x])
             Tsol5[x]=dbt[x] + R_roof * ((absorptivity_brick*GTI5[x])-(emmisivity_brick*I_roof))
             
-    if(construction=="concrete"):  
+    if(construction=="Concrete Brick"):  
         for y in range(0,8760):
             if (GTI1[y]+ GTI2[y] + GTI3[y] + GTI4[y] + GTI5[y]) == 0:
                 m=0
@@ -371,7 +372,7 @@ def showtime():
         Thickness1 = sum(t1)/8760
         Volume_of_room = (length-(2*(Thickness1/100)))*(breadth-(2*(Thickness1/100)))*(height-(2*(Thickness1/100))) 
                 
-    elif(construction=="brick"):
+    elif(construction=="Red Brick"):
         for y in range(0,8760):
             if (GTI1[y]+ GTI2[y] + GTI3[y] + GTI4[y] + GTI5[y]) == 0:
                 m=0
@@ -482,7 +483,7 @@ def showtime():
 
 
 
-    if (construction=="concrete"):
+    if (construction=="Concrete Brick"):
         for s in range(0,8760):
             if (GTI1[s]+ GTI2[s] + GTI3[s] + GTI4[s] + GTI5[s]) == 0:
                 Tw1[s]=Tsol1[s] + ((4.7065*z)/100)
@@ -499,21 +500,21 @@ def showtime():
                 Tw5[s]=Tsol5[s] - ((4.7065*z)/100)
                 Troom[s]= ((Fm1*Tw1[s] + Fm2*Tw2[s] + Fm3*Tw3[s] + Fm4*Tw4[s] + Fm5*Tw5[s])+dbt[s])/2       
 
-    elif(construction=="brick"):
+    elif(construction=="Red Brick"):
             for s in range(0,8760):
                 if (GTI1[s]+ GTI2[s] + GTI3[s] + GTI4[s] + GTI5[s]) == 0:
-                    Tw1[s]=Tsol1[s] + ((4.7065*z)/100)
-                    Tw2[s]=Tsol2[s] + ((4.7065*z)/100)
-                    Tw3[s]=Tsol3[s] + ((4.7065*z)/100)
-                    Tw4[s]=Tsol4[s] + ((4.7065*z)/100)
-                    Tw5[s]=Tsol5[s] + ((4.7065*z)/100)
+                    Tw1[s]=Tsol1[s] + ((7.72*z)/100)
+                    Tw2[s]=Tsol2[s] + ((7.72*z)/100)
+                    Tw3[s]=Tsol3[s] + ((7.72*z)/100)
+                    Tw4[s]=Tsol4[s] + ((7.72*z)/100)
+                    Tw5[s]=Tsol5[s] + ((7.72*z)/100)
                     Troom[s]= ((Fm1*Tw1[s] + Fm2*Tw2[s] + Fm3*Tw3[s] + Fm4*Tw4[s] + Fm5*Tw5[s])+dbt[s])/2
                 elif(GTI1[s]+ GTI2[s] + GTI3[s] + GTI4[s] + GTI5[s]) != 0:
-                    Tw1[s]=Tsol1[s] - ((4.7065*z)/100)
-                    Tw2[s]=Tsol2[s] - ((4.7065*z)/100)
-                    Tw3[s]=Tsol3[s] - ((4.7065*z)/100)
-                    Tw4[s]=Tsol4[s] - ((4.7065*z)/100)
-                    Tw5[s]=Tsol5[s] - ((4.7065*z)/100)
+                    Tw1[s]=Tsol1[s] - ((7.72*z)/100)
+                    Tw2[s]=Tsol2[s] - ((7.72*z)/100)
+                    Tw3[s]=Tsol3[s] - ((7.72*z)/100)
+                    Tw4[s]=Tsol4[s] - ((7.72*z)/100)
+                    Tw5[s]=Tsol5[s] - ((7.72*z)/100)
                     Troom[s]= ((Fm1*Tw1[s] + Fm2*Tw2[s] + Fm3*Tw3[s] + Fm4*Tw4[s] + Fm5*Tw5[s])+dbt[s])/2   
         
 
