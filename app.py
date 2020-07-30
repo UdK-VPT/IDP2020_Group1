@@ -592,7 +592,7 @@ def showtime():
     # plotting the pie chart 
     plt.figure('2')
     plt.pie(slices, labels = activities, colors=colors,  
-            startangle=90, shadow = True, explode = (0.1, 0, 0), 
+            startangle=90, shadow = False, explode = (0, 0, 0), 
             radius = 1.2, autopct = '%1.1f%%') 
     
     # plotting legend 
@@ -614,7 +614,7 @@ def showtime():
     # plotting the pie chart 
     plt.figure('3')
     plt.pie(slice1, labels = activity, colors=colors,  
-            startangle=90, shadow = True, explode = (0, 0), 
+            startangle=90, shadow = False, explode = (0, 0), 
             radius = 1.2, autopct = '%1.1f%%') 
     
     # plotting legend 
