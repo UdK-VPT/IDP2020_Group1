@@ -23,7 +23,7 @@
 
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
-          <img src="/static/logo.jpeg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+          <img src="/static/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
           NERKS.
         </a>
       </nav>
@@ -36,41 +36,28 @@
             <div class="card bg-light" style="height: 0vmax;">
                 <div class="card-body">
                   <div class="alert alert-primary" role="alert">
-                    Step 1 : Use the map on this page to find your location.
+                    Step 1 : Click on the markers to check the available weather stations.
                   </div>
                   <div class="alert alert-primary" role="alert">
-                    Step 2 : Enter the latitude and longitude from the map, followed by the time shift.
+                    Step 2 : Select the closest weather station to your location.
                   </div>
                   <div class="alert alert-primary" role="alert">
                     Step 3 : Click on submit!
                   </div>
                   <div class="alert alert-danger" role="alert">
-                    NOTE : Please enter only the latitude and longitude value. They are typically of the form XX.XXXXXX.
+                    NOTE : Please enter the exact name of the weather station in the form. For convinience, copy the name from the map and paste it in the field.
                   </div>
                   <div class="alert alert-danger" role="alert">
-                    NOTE : Please enter time shift in the form X.XX or -X.XX.
+                    NOTE : If you do not find a weather station close to your location, please come back at a later point of time and check again. At NERKS, we try to add the data from more weather stations perpetually.
                   </div>
-                    <form action="/input1">
-                      
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">LATITUDE</label>
-                        <input name = "latitude" type="text">
-                        <small id="emailHelp" class="form-text text-muted">Enter the latitude from map.</small>
-                      </div>
-                      
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">LONGITUDE</label>
-                        <input name = "longitude" type="text">
-                        <small id="emailHelp" class="form-text text-muted">Enter the longitude from map.</small>
-                      </div>
 
+                    <form action="/input2">
+                      
                       <div class="form-group">
-                        <label for="exampleInputEmail1">TIME-SHIFT</label>
-                        <input name = "time_shift" type="text">
-                        <small id="emailHelp" class="form-text text-muted">Enter the Time Shift.</small>
+                        <label for="exampleInputEmail1">CLOSEST WEATHER STATION</label>
+                        <input name = "ws" type="text">
+                        <small id="emailHelp" class="form-text text-muted">Enter the closest weather station from map.</small>
                       </div>
-                        
-                        
                         <input type="submit" >
                       </form>
                 </div>
@@ -90,7 +77,7 @@
     
     
     <script>
-        const mymap = L.map('mapid').setView([52.5200, 13.4050], 10);
+        const mymap = L.map('mapid').setView([52.5200, 13.4050], 2);
 
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoicmh0bW5uIiwiYSI6ImNrZDFmeXBoejEzNmMyd291MGtoeXh6ODQifQ.2DEj5EW9Yu0-SCuqWPEHeg', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -102,32 +89,39 @@
         }).addTo(mymap);
 
 
-        function onMapClick(e) {
+        L.marker([40.781582, -73.965669]).addTo(mymap)
+        .bindPopup('New York, USA')
+        .openPopup();
 
-        var position = e.latlng.toString();
-        var pos = position.search(",");
-        var end = position.length;
-        var lttd = position.slice(7,pos);
-        var lgtd = position.slice(pos+1,end-1); 
-        
-                
-        var popup = L.popup();
-            popup
-        .setLatLng(e.latlng)
-        .setContent("Latitude : " + lttd +"    Longitude : " + lgtd)
-        .openOn(mymap);
-        var marker = e.latlng;
-   
-        }
-        mymap.on('click', onMapClick);
+        L.marker([-34.606862, -58.436079]).addTo(mymap)
+        .bindPopup('Buenos Aires, Argentina')
+        .openPopup();
+
+        L.marker([-22.957353, 144.212862]).addTo(mymap)
+        .bindPopup('Queensland, Australia')
+        .openPopup();
+
+        L.marker([30.035849, 31.232603]).addTo(mymap)
+        .bindPopup('Cairo, Egypt')
+        .openPopup();
+
+        L.marker([30.319553, 78.03945]).addTo(mymap)
+        .bindPopup('Dehradun, India')
+        .openPopup();
+
+        L.marker([13.075483, 80.280607]).addTo(mymap)
+        .bindPopup('Chennai, India')
+        .openPopup();
+
+        L.marker([52.5200, 13.4050]).addTo(mymap)
+        .bindPopup('Berlin, Germany')
+        .openPopup();
         
         
     </script>
     
     
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
     
     
     

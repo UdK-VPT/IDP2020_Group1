@@ -4,11 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-    <form action="/compass">
-        <input name="azimuth"type="text">
-        <input type="submit">
-    </form>
+
+
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <img src="/static/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+          NERKS.
+        </a>
+      </nav>
+
+    
+      
+      <div class="card mb-3" style="max-width: 100vw;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <div class="card bg-light" style="height: 0vmax;">
+                <div class="card-body">
+                  <div class="alert alert-primary" role="alert">
+                    Step 1 : Scan the QR code using your smartphone. You will be redirected to https://lamplightdev.github.io/compass/.
+                  </div>
+                  <div class="alert alert-primary" role="alert">
+                    Step 2 : Use the compass on the website to find the angle between the wall along "LENGTH" and the closest pole.
+                  </div>
+                  <div class="alert alert-primary" role="alert">
+                    EXPLANATION : If you are in the northern hemisphere, you should provide as input the angle between the wall and north pole. 
+                    If you are in the southern hemisphere, you should provide as input the angle between the wall and south pole.
+                  </div>
+                  <div class="alert alert-danger" role="alert">
+                    NOTE : Most smartphones have a pre-installed compass application. You are free to use that application as well.
+                  </div>
+
+                    <form action="/compass">
+                      
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">ORIENTATION</label>
+                        <input name = "azimuth" type="text">
+                        <small id="emailHelp" class="form-text text-muted">Enter the angle from compass.</small>
+                      </div>
+                        <input type="submit" >
+                      </form>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <img src="/static/compass.png" class="card-img" style="width: 700px;"alt="...">
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+
+
+    
+    
+        
+
+    
+    
+    
 </body>
 </html>
