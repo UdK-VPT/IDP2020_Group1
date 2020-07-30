@@ -1,5 +1,7 @@
 import math
 import csv
+import matplotlib.pyplot as plt 
+import numpy as np
 lat = 23.23
 lng = 56.48
 ts = 3.5
@@ -113,8 +115,9 @@ emmisivity_brick = 0.55
 absorptivity_brick = 0.93
 emmisivity_concrete = 0.65
 absorptivity_concrete = 0.96
-max_temp = 18
-min_temp = 24
+max_temp = 24
+min_temp = 18
+comfort = 0
 R_wall=0.05       # m2K/W
 R_roof=0.04       # m2K/W
 I_roof=100        # W/m2
@@ -172,7 +175,7 @@ for y in range(0,8760):
                 t4[y]= z
                 t5[y]= z
                 o=1
-                break
+                
             elif Treq[z-20]< min_temp:
                 th= min_temp-Treq[z-20]
                 Theat.append(th)
@@ -189,7 +192,7 @@ for y in range(0,8760):
 
         if(o==1):
             o=0
-            break
+            
         elif(m>0):
             mini2 = min(Theat)
             pos2 = Theat.index(mini2)
@@ -225,7 +228,7 @@ for y in range(0,8760):
                 t4[y]= z
                 t5[y]= z
                 p=1
-                break
+                
             elif Treq[z-20]< min_temp:
                 th= min_temp-Treq[z-20]
                 Theat.append(th)
@@ -242,7 +245,7 @@ for y in range(0,8760):
 
         if(p==1):
             p=0
-            break
+            
         elif(i>0):
             mini = min(Theat)
             pos = Theat.index(mini)
@@ -298,4 +301,7 @@ for q in range(0,8760):
         Qc = (1.225*(Volume_of_room)*1000*deltacool)/3600
         Qcool.append(Qc)
         b=b+1
-print(Thickness1)            
+print(Thickness1)   
+print(comfort)     
+print(Heat_hours)
+print(Cool_hours)
