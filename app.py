@@ -476,7 +476,7 @@ def showtime():
                 t3[y]= thkcool[pos1] 
                 t4[y]= thkcool[pos1] 
                 t5[y]= thkcool[pos1]
-    Thickness1 = sum(t1)/8760
+    Thickness1 = round(sum(t1)/8760)
     Volume_of_room = (length-(2*(Thickness1/100)))*(breadth-(2*(Thickness1/100)))*(height-(2*(Thickness1/100))) 
                 
 
@@ -540,8 +540,8 @@ def showtime():
             Qcool.append(Qc)
             b=b+1
 
-    KWatthourheat = (sum(Qheat)*a)/1000
-    KWatthourcool = (sum(Qcool)*b)/1000
+    KWatthourheat = round((sum(Qheat)*a)/1000)
+    KWatthourcool = round((sum(Qcool)*b)/1000)
     TotalEnergyKWh= KWatthourcool+KWatthourheat
     print(Thickness1)   
     print(comfort)     
@@ -689,5 +689,5 @@ def showtime():
     plt.savefig('./static/walls.png')
     plt.close
 
-    return render_template("results.html",wt = str(Thickness1))
+    return render_template("results.html",wt = str(Thickness1),cmf = str(comfort),hh = str(Cool_hours),ch = str(Heat_hours),eh = str(KWatthourheat),ec = str(KWatthourcool),et = str(TotalEnergyKWh))
         
