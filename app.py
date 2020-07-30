@@ -162,7 +162,9 @@ def input2():
     elif ws == "Chennai, India":
         file = open("India-Chennai.csv","r")
     elif ws == "Berlin, Germany":
-        file = open("Germany-Berlin.csv","r")     
+        file = open("Germany-Berlin.csv","r") 
+    elif ws == "Tokyo, Japan":
+        file = open("Japan-Tokyo.csv","r")    
     reader = csv.DictReader(file)
     for row in reader:
         dhi.append(float(row["Diffuse Horizontal Radiation {Wh/m2}"]))
@@ -569,11 +571,11 @@ def showtime():
     plt.axhspan(min_temp,max_temp,color='green',alpha=0.5)
     
     # naming the x-axis 
-    plt.xlabel('x - axis') 
+    plt.xlabel('Hours of the year') 
     # naming the y-axis 
-    plt.ylabel('y - axis') 
+    plt.ylabel('Room Temperature') 
     # plot title 
-    plt.title('My bar chart!') 
+    plt.title('Variation of room temperature throughout year') 
     
     # function to show the plot 
 

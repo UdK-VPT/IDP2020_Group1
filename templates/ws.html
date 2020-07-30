@@ -88,6 +88,9 @@
         accessToken: 'your.mapbox.access.token'
         }).addTo(mymap);
 
+        L.marker([35.680275, 139.689662]).addTo(mymap)
+        .bindPopup('Tokyo, Japan')
+        .openPopup();
 
         L.marker([40.781582, -73.965669]).addTo(mymap)
         .bindPopup('New York, USA')
@@ -117,6 +120,7 @@
         .bindPopup('Berlin, Germany')
         .openPopup();
         
+
         
     </script>
     
