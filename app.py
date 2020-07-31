@@ -580,6 +580,7 @@ def showtime():
     # function to show the plot 
 
     plt.savefig('./static/Room Temperature.png')
+    plt.close
   
     
 
